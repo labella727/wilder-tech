@@ -164,7 +164,7 @@
         <input id="email" name="email" type="email" placeholder="you@example.com" required />
 
         <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" />
+        <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" pattern="[0-9()+\s-]{7,}" required />
 
         <label for="organization">Organization</label>
         <input id="organization" name="organization" placeholder="Business name" />
@@ -202,8 +202,18 @@
       // Basic client-side validation
       const email = form.email.value.trim();
       const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
       if (!name || !email) {
         statusEl.textContent = 'Please provide your name and email.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+        return;
+      }
+
+      // Phone validation (required and basic format)
+      const phoneRegex = /^[0-9()+\s-]{7,}$/;
+      if (!phoneRegex.test(phone)) {
+        statusEl.textContent = 'Please enter a valid phone number.';
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit';
         return;
