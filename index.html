@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wilder Tech | Business Development & AI Efficiency Experts</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --radius: 1.2rem;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 4vw; position: sticky; top: 0; background: rgba(11,17,32,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(148,163,184,0.15); }
+    .logo { display: flex; align-items: center; gap: 0.7rem; }
+    .logo svg { height: 48px; width: 48px; fill: #000; background: #f8fafc; border-radius: 10px; padding: 4px; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 1.2rem; font-size: .9rem; transition: .2s; }
+    nav a:hover { color: var(--accent); }
+    .btn-primary { background: var(--accent); color: #0b1120; font-weight: 600; padding: .55rem 1.2rem; border-radius: 9999px; text-decoration: none; transition: .2s; }
+    .btn-primary:hover { opacity: .9; }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.4rem; padding: 5rem 4vw 3rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.8rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; }
+    .hero p { color: var(--muted); margin-top: 1rem; max-width: 580px; }
+    .hero-actions { margin-top: 1.6rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    section { padding: 4rem 4vw; }
+    .section-title { font-size: 1.8rem; margin-bottom: .5rem; }
+    .section-sub { color: var(--muted); max-width: 600px; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--surface); border-radius: var(--radius); padding: 1.4rem; border: 1px solid rgba(148,163,184,0.12); }
+    .card h3 { margin-bottom: .6rem; }
+    footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: .85rem; border-top: 1px solid rgba(148,163,184,0.12); }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } nav { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <!-- Black tech-inspired logo using inline SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M10 8l10 24 10-24h4l10 24 10-24h4L42 56h-4L32 32l-6 24h-4L6 8h4z"/></svg>
+      <strong>Wilder Tech</strong>
+    </div>
+    <nav>
+      <a href="#solutions">Solutions</a>
+      <a href="#framework">Framework</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn-primary" href="#contact">Start a Project</a>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Business Development Powered by AI Efficiencies</h1>
+        <p>Wilder Tech helps organizations grow revenue, streamline operations, and accelerate innovation through data-driven business development and AI-powered efficiency solutions. Our goal is simple — help you scale smarter and faster.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get Started</a>
+          <a href="#framework" style="color: var(--muted); text-decoration: none;">View how we build →</a>
+        </div>
+      </div>
+      <div>
+        <div style="background: rgba(15, 23, 42, 0.45); border: 1px solid rgba(148, 163, 184, 0.15); border-radius: 1rem; padding: 1.2rem 1rem 1rem; display: grid; gap: .7rem;">
+          <p style="font-weight: 600;">AI Efficiency Snapshot</p>
+          <p style="color: var(--muted); font-size: .85rem;">Identify manual tasks, automate follow-up, and free leaders to focus on development.</p>
+          <div style="display: flex; gap: .75rem;">
+            <div style="background: rgba(2,6,23,.35); border:1px solid rgba(148,163,184,.08); border-radius:.7rem; padding:.4rem .65rem;">
+              <p style="font-size:.6rem; text-transform:uppercase; color:var(--muted);">Avg. time saved</p>
+              <p style="font-size:1.25rem; font-weight:700;">25–40%</p>
+            </div>
+            <div style="background: rgba(2,6,23,.35); border:1px solid rgba(148,163,184,.08); border-radius:.7rem; padding:.4rem .65rem;">
+              <p style="font-size:.6rem; text-transform:uppercase; color:var(--muted);">Faster outreach</p>
+              <p style="font-size:1.25rem; font-weight:700;">3x</p>
+            </div>
+          </div>
+          <a href="mailto:luz@wildertech.net" class="btn-primary" style="width: fit-content;">Request AI audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <h2 class="section-title">Business Development Solutions</h2>
+      <p class="section-sub">We combine AI technology with growth strategy to unlock new business opportunities, improve decision-making, and maximize performance across every level of your organization.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>AI-Driven Sales Enablement</h3>
+          <p>Deploy intelligent systems that predict opportunities, personalize outreach, and increase conversion efficiency.</p>
+        </div>
+        <div class="card">
+          <h3>Operational Streamlining</h3>
+          <p>Leverage automation to reduce manual workload, accelerate processes, and strengthen cross-functional collaboration.</p>
+        </div>
+        <div class="card">
+          <h3>Strategic Growth Planning</h3>
+          <p>Design 2026-ready business strategies backed by real-time insights, AI analytics, and market intelligence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="framework">
+      <h2 class="section-title">The Wilder Tech Framework</h2>
+      <p class="section-sub">Our framework bridges business development and technology by integrating AI automation and process optimization into every stage of your growth plan.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Analyze</h3>
+          <p>We assess your operations, market positioning, and growth barriers to identify where AI can drive efficiency and profitability.</p>
+        </div>
+        <div class="card">
+          <h3>2. Develop</h3>
+          <p>Build and integrate smart tools and workflows that improve productivity, scalability, and customer engagement.</p>
+        </div>
+        <div class="card">
+          <h3>3. Optimize</h3>
+          <p>Continuously refine your systems with analytics and automation to ensure sustained growth and ROI.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Project-Based Engagements</h2>
+      <p class="section-sub">Our project-based model delivers measurable impact — each engagement focuses on accelerating business development outcomes while embedding AI-driven efficiency at the core.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>AI Efficiency Audit</h3>
+          <p>Discover how automation can cut costs, improve speed, and enhance customer touchpoints within your organization.</p>
+        </div>
+        <div class="card">
+          <h3>Revenue Growth Blueprint</h3>
+          <p>We design actionable AI-powered development plans that connect efficiency with sales growth and customer expansion.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Process Implementation</h3>
+          <p>Automate business processes end-to-end to improve visibility, decision-making, and profitability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Let’s Build Smarter Growth</h2>
+      <p class="section-sub">Connect with Wilder Tech to accelerate your business development strategy through AI-powered efficiency. Fill out the form below to schedule your consultation.</p>
+      <form class="contact-form" action="mailto:luz@wildertech.net" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input id="name" name="name" placeholder="Your name" />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+        <label for="organization">Organization</label>
+        <input id="organization" name="organization" placeholder="Business name" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="How can we help optimize your business development?"></textarea>
+        <button class="btn-primary" style="margin-top: 1rem;">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="height:48px; width:48px; fill:#000; background:#f8fafc; border-radius:10px; padding:4px; margin-top:1rem;"><path d="M10 8l10 24 10-24h4l10 24 10-24h4L42 56h-4L32 32l-6 24h-4L6 8h4z"/></svg>
+    <p>© <span id="year"></span> Wilder Tech. Building business development through AI efficiency.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
