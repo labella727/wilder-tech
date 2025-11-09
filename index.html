@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wilder Tech | Business Development & AI Efficiency Experts</title>
   <style>
     :root {
@@ -32,6 +32,10 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
     .card { background: var(--surface); border-radius: var(--radius); padding: 1.4rem; border: 1px solid rgba(148,163,184,0.12); }
     .card h3 { margin-bottom: .6rem; }
+    .form-row { margin-top: .5rem; display:block; }
+    input, textarea { width: 100%; padding: .6rem .7rem; margin-top:.35rem; border-radius:.6rem; border:1px solid rgba(148,163,184,0.08); background: rgba(2,6,23,0.35); color:var(--text); }
+    .form-actions { margin-top: .9rem; display:flex; gap:.6rem; align-items:center; }
+    .status { color: var(--muted); font-size:.95rem; }
     footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: .85rem; border-top: 1px solid rgba(148,163,184,0.12); }
     @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } nav { display: none; } }
   </style>
@@ -39,7 +43,6 @@
 <body>
   <header>
     <div class="logo">
-      <!-- Black tech-inspired logo using inline SVG -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M10 8l10 24 10-24h4l10 24 10-24h4L42 56h-4L32 32l-6 24h-4L6 8h4z"/></svg>
       <strong>Wilder Tech</strong>
     </div>
@@ -49,17 +52,16 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <!-- CTA: Start a Project -> direct email to Luz -->
-    <a class="btn-primary" href="mailto:luz@wildertech.net?subject=Website%20Lead%20-%20Start%20a%20Project&body=Hi%20Luz%2C%0A%0AI%27m%20interested%20in%20starting%20a%20project.%20Please%20contact%20me%20at%20%5Bphone%20or%20preferred%20email%5D.%0A%0AThanks%2C%0A%5BName%5D">Start a Project</a>
+    <a class="btn-primary" href="#contact">Start a Project</a>
   </header>
+
   <main>
     <section class="hero">
       <div>
         <h1>Business Development Powered by AI Efficiencies</h1>
         <p>Wilder Tech helps organizations grow revenue, streamline operations, and accelerate innovation through data-driven business development and AI-powered efficiency solutions. Our goal is simple — help you scale smarter and faster.</p>
         <div class="hero-actions">
-          <!-- CTA: Get Started -> direct email to Luz -->
-          <a href="mailto:luz@wildertech.net?subject=Website%20Lead%20-%20Get%20Started&body=Hi%20Luz%2C%0A%0AI%27m%20ready%20to%20get%20started.%20Please%20let%20me%20know%20how%20to%20proceed.%0A%0AThanks%2C%0A%5BName%5D" class="btn-primary">Get Started</a>
+          <a href="#contact" class="btn-primary">Get Started</a>
           <a href="#framework" style="color: var(--muted); text-decoration: none;">View how we build →</a>
         </div>
       </div>
@@ -77,8 +79,7 @@
               <p style="font-size:1.25rem; font-weight:700;">3x</p>
             </div>
           </div>
-          <!-- CTA: Request AI audit -> direct email to Luz with subject -->
-          <a href="mailto:luz@wildertech.net?subject=Request%20AI%20Efficiency%20Audit" class="btn-primary" style="width: fit-content;">Request AI audit</a>
+          <a href="#contact" class="btn-primary" style="width: fit-content;">Request AI audit</a>
         </div>
       </div>
     </section>
@@ -143,25 +144,99 @@
     <section id="contact">
       <h2 class="section-title">Let’s Build Smarter Growth</h2>
       <p class="section-sub">Connect with Wilder Tech to accelerate your business development strategy through AI-powered efficiency. Fill out the form below to schedule your consultation.</p>
-      <form class="contact-form" action="mailto:luz@wildertech.net" method="post" enctype="text/plain">
+
+      <!-- Form: posts to Formsubmit.co AJAX endpoint so no mail client opens.
+           Formsubmit will email submissions to luz@wildertech.net.
+           Note: Formsubmit usually requires one-time confirmation from that address on first submission. -->
+      <form id="lead-form" class="contact-form" method="POST" action="https://formsubmit.co/ajax/luz@wildertech.net">
+        <!-- Honeypot for spam bots -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <!-- Disable Formsubmit's captcha if desired -->
+        <input type="hidden" name="_captcha" value="false" />
+        <!-- Customize email subject -->
+        <input type="hidden" name="_subject" value="Wilder Tech Website Lead" />
+        <!-- optional redirect fallback if JS disabled -->
+        <input type="hidden" name="_next" value="https://labella727.github.io/wilder-tech/thanks.html" />
+
         <label for="name">Name</label>
-        <input id="name" name="name" placeholder="Your name" />
+        <input id="name" name="name" placeholder="Your name" required />
+
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" />
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
         <label for="organization">Organization</label>
         <input id="organization" name="organization" placeholder="Business name" />
+
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="4" placeholder="How can we help optimize your business development?"></textarea>
-        <button class="btn-primary" style="margin-top: 1rem;">Submit</button>
+
+        <div class="form-actions">
+          <button id="submit-btn" class="btn-primary" type="submit">Submit</button>
+          <div id="form-status" class="status" aria-live="polite" style="margin-left:.6rem;"></div>
+        </div>
       </form>
     </section>
   </main>
+
   <footer>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="height:48px; width:48px; fill:#000; background:#f8fafc; border-radius:10px; padding:4px; margin-top:1rem;"><path d="M10 8l10 24 10-24h4l10 24 10-24h4L42 56h-4L32 32l-6 24h-4L6 8h4z"/></svg>
     <p>© <span id="year"></span> Wilder Tech. Building business development through AI efficiency.</p>
   </footer>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // AJAX submit to Formsubmit.co so the user's mail client is not opened.
+    const form = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      // Basic client-side validation
+      const email = form.email.value.trim();
+      const name = form.name.value.trim();
+      if (!name || !email) {
+        statusEl.textContent = 'Please provide your name and email.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+        return;
+      }
+
+      // Prepare form data
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const json = await res.json();
+
+        if (res.ok) {
+          statusEl.style.color = '#9be7ff';
+          statusEl.textContent = 'Thanks — your message was sent. Luz will follow up soon.';
+          form.reset();
+          // Optionally redirect to a thank-you page after a short delay
+          // setTimeout(()=> window.location.href = '/thanks.html', 1400);
+        } else {
+          throw new Error(json.message || 'Form submission failed');
+        }
+      } catch (err) {
+        statusEl.style.color = '#ffb4b4';
+        statusEl.textContent = 'Sorry — there was an error sending your message. Please try again or email luz@wildertech.net directly.';
+        console.error('Form submit error', err);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
   </script>
 </body>
 </html>
