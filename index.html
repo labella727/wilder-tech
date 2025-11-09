@@ -145,9 +145,8 @@
       <h2 class="section-title">Let’s Build Smarter Growth</h2>
       <p class="section-sub">Connect with Wilder Tech to accelerate your business development strategy through AI-powered efficiency. Fill out the form below to schedule your consultation.</p>
 
-      <!-- Form: posts to Formsubmit.co AJAX endpoint so no mail client opens.
-           Formsubmit will email submissions to luz@wildertech.net.
-           Note: Formsubmit usually requires one-time confirmation from that address on first submission. -->
+      <!-- Form posts to Formsubmit.co AJAX endpoint so no mail client opens.
+           Formsubmit will email submissions to luz@wildertech.net. -->
       <form id="lead-form" class="contact-form" method="POST" action="https://formsubmit.co/ajax/luz@wildertech.net">
         <!-- Honeypot for spam bots -->
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
@@ -163,6 +162,9 @@
 
         <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" />
 
         <label for="organization">Organization</label>
         <input id="organization" name="organization" placeholder="Business name" />
@@ -221,10 +223,8 @@
 
         if (res.ok) {
           statusEl.style.color = '#9be7ff';
-          statusEl.textContent = 'Thanks — your message was sent. A Wilder Tech Account Manager will contact you soon.';
+          statusEl.textContent = 'Thank you — your message was sent. A Wilder Tech Account Manager will contact you soon.';
           form.reset();
-          // Optionally redirect to a thank-you page after a short delay
-          // setTimeout(()=> window.location.href = '/thanks.html', 1400);
         } else {
           throw new Error(json.message || 'Form submission failed');
         }
